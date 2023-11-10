@@ -1,0 +1,25 @@
+<!-- ---
+import PostStrapi from './PostStrapi.astro'
+
+const { articles }  = Astro.props;
+
+---
+
+<div class="grid grid-cols-2 gap-x-16 gap-y-14 max-md:grid-cols-1 mb-24">
+  {articles.map((article) => (
+      <PostStrapi articles={article} />
+  ))}
+</div> -->
+
+---
+import PostStrapi from './PostStrapi.astro';
+
+const { articles } = Astro.props;
+
+---
+
+<div class="grid grid-cols-2 gap-x-16 gap-y-14 max-md:grid-cols-1 mb-24">
+  {articles.map((article) => (
+    <PostStrapi article={article} />
+))}
+</div>
