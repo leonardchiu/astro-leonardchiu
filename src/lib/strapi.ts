@@ -24,8 +24,8 @@ export default async function fetchApi<T>({
     endpoint = endpoint.slice(1);
   }
   // const url = import.meta.env.PUBLIC_STRAPI_URL + "/api/" + endpoint;
-  const url = new URL(`${import.meta.env.PUBLIC_STRAPI_URL}/api/${endpoint}`);
-  // const url = new URL(`http://127.0.0.1:1337/api/${endpoint}`);
+  // const url = new URL(`${import.meta.env.PUBLIC_STRAPI_URL}/api/${endpoint}`);
+  const url = new URL(`http://strapi.leonardchiu.com:1337/api/${endpoint}`);
 
   if (query) {
     Object.entries(query).forEach(([key, value]) => {
@@ -34,9 +34,9 @@ export default async function fetchApi<T>({
   }
   const res = await fetch(url.toString(), {
     headers: {
-      Authorization: `Bearer ${import.meta.env.PUBLIC_apiKEY}`,
-      // Authorization:
-      //   "Bearer 79add1fd324e3a84fea06d633f5ce9259106aa9beb703eb8d117b1c1f7e7755ea69ee13cfcaeba48c2dffdb94244567ab5f2d93536f953d6db265aa44d7971d6fa363309009f24a644f62579007450f3c3d0b5153755b65cd15e729389da2b9088f1e92dd8df3efa3ad9c9516da2fca21ab0c85b00bcbc2eaf9f24aec3158fa0",
+      // Authorization: `Bearer ${import.meta.env.PUBLIC_apiKEY}`,
+      Authorization:
+        "Bearer a14ce8824cfd6c2e52bfaf8e38501bf20d865f190df240e17eca264bd228e1a2e85b1cbe2e8add492652ec7e19afc70d233c6b5966cee10663b382087fdca4e597d7d07842845cc1a0b483faa356337fd8b6425ca557087ca6471fbb0b48ec19174e92c7b86e84df5b87520e3d34e3ec8f57c55cdaba0663dc2939ca90a5fd1e",
     },
   });
   let data = await res.json();
