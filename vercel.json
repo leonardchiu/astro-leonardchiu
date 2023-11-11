@@ -1,9 +1,0 @@
-{
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "http://strapi-leonardchiu.com:1337",
-      "continue": true
-    }
-  ]
-}
