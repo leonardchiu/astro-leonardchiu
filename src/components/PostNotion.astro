@@ -15,7 +15,7 @@ function formatDate(dateString) {
 // console.log('Articles:', article);
 ---
 
-<!-- <article>
+<article>
     <a href={`/posts/${article.properties.Slug.rich_text[0].text.content}`}>
         
         <img 
@@ -28,23 +28,6 @@ function formatDate(dateString) {
     <a href={`/posts/${article.properties.Slug.rich_text[0].text.content}`} class="text-2xl text-zinc-900 font-semibold inline-black">
         <h2>{article.properties.Title.title[0].text.content}</h2>
         <p class="text-sm">Date posted: {formatDate(article.properties.Date.date.start)}</p>
-    </a>
-        
-</article> -->
-
-<article>
-    <a href={`/posts/${article.attributes.slug}`}>
-        
-        <img 
-        src={`http://127.0.0.1:1337${article.attributes.image.data.attributes.formats.medium.url}`}
-        width={600} 
-        height={600/1.5} 
-        alt={article.attributes.title} 
-        class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover h-32" />
-    </a>
-    <a href={`/posts/${article.attributes.slug}`} class="text-2xl text-zinc-900 font-semibold inline-black">
-        <h2>{article.attributes.title}</h2>
-        <p class="text-sm">Date posted: {formatDate(article.attributes.pubDate)}</p>
     </a>
         
 </article>

@@ -1,0 +1,11 @@
+---
+const { content, image, title } = Astro.props;
+import React from "react";
+
+---
+
+<article>
+    <h1>{ title }</h1>
+    <img src={ image } alt={ title } />
+    <div>{ content }</div>
+</article>

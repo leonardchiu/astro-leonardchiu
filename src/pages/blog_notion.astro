@@ -1,0 +1,25 @@
+---
+import { getPageContent, getPageBySlug, getPages } from "../lib/notion.ts";
+import { NotionRenderer } from "@notion-render/client"
+
+import H1 from '../components/H1.astro';
+import Main from '../components/Main.astro';
+import Layout from '../layouts/Layout.astro';
+import PostListNotion from '../components/PostListNotion.astro';
+
+export const prerender = true;
+
+const articles = await getPages();
+
+// console.log(articles);
+
+---
+
+<Layout title="Leonard Chiu's Blog HELLO">
+    <Main>
+        <H1 text="Latest Blog" />
+          
+            <PostListNotion articles={articles} />
+        
+    </Main>
+</Layout>

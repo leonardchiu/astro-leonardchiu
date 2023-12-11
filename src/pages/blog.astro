@@ -1,4 +1,4 @@
-<!-- ---
+---
 import { getCollection } from 'astro:content';
 import H1 from '../components/H1.astro';
 import Main from '../components/Main.astro';
@@ -15,32 +15,5 @@ const posts = await getCollection('posts');
 
             <PostList posts={posts} />
 
-    </Main>
-</Layout> -->
-
----
-// import { getCollection } from 'astro:content';
-import H1 from '../components/H1.astro';
-import Main from '../components/Main.astro';
-import Layout from '../layouts/Layout.astro';
-import PostListStrapi from '../components/PostListStrapi.astro';
-import fetchApi from '../lib/strapi.ts';
-import type Articles from '../interfaces/articles.ts'; 
-
-const articles = await fetchApi<Articles[]>({
-  // endpoint: 'blog-posts?populate=image',
-  endpoint: 'blogs?populate=image',
-  wrappedByKey: 'data',
-});
-
-// console.log(articles);
----
-
-<Layout title="Leonard Chiu's Blog">
-    <Main>
-        <H1 text="Latest Blog" />
-        
-            <PostListStrapi articles={articles} />
-        
     </Main>
 </Layout>

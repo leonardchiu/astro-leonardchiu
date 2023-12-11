@@ -7,20 +7,20 @@ import PostListStrapi from '../components/PostListStrapi.astro';
 import fetchApi from '../lib/strapi.ts';
 import type Articles from '../interfaces/articles.ts'; 
 
-const articles = await fetchApi<Articles[]>({
-  // endpoint: 'blog-posts?populate=image',
-  endpoint: 'blogs?populate=image',
+const data = await fetchApi<Articles[]>({
+  endpoint: 'blog-posts?populate=image',
   wrappedByKey: 'data',
 });
 
-export const prerender = true;
-// console.log(articles);
+const articles = data;
+
+console.log(articles);
 ---
 
-<Layout title="Leonard Chiu's Blog">
+<Layout title="Leonard Chiu's Blog HELLO">
     <Main>
         <H1 text="Latest Blog" />
-        
+          
             <PostListStrapi articles={articles} />
         
     </Main>

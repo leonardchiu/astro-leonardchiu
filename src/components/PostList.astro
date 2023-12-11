@@ -12,7 +12,7 @@ const { posts } = Astro.props;
 const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 ---
 
-<div class="grid grid-cols-2 gap-x-16 gap-y-14 max-md:grid-cols-1 mb-24">
+<div class="grid grid-cols-2 gap-x-16 gap-y-14 max-md:grid-cols-1 mb-32ç">
     {posts.map((post) => (
         <Post post={post} />
     ))}
