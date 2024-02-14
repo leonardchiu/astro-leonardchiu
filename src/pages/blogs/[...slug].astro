@@ -1,0 +1,48 @@
+---
+// getEntry is to get a single post from collection. 
+//In this page we are get the slug from params and return via the slug in the post
+import { getEntry } from 'astro:content';
+import H1 from '../../components/H1.astro';
+import Main from '../../components/Main.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const { slug } = Astro.params;
+
+if(slug === undefined) {
+    throw new Error('slug is undefined');
+}
+
+//This slug is from line 9 where we extract from params
+const entry = await getEntry('posts', slug);
+
+if(entry === undefined) {
+    return Astro.redirect('/404');
+}
+
+const { Content } = await entry.render();
+---
+
+<Layout title="Leonard Chiu's Blog">
+    <Main>
+        <H1 text={entry.data.title}/>
+        <img src={ entry.data.image.url } alt="Post Image" class="max-w-4xl w-full mx-auto" />
+        <Content />
+    </Main>
+</Layout>
+
+<style is:global>
+    p {
+        margin: 20px;
+    }
+
+    h2 {
+        margin: 20px;
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    h3 {
+        margin: 20px;
+        font-size: large;
+    }
+</style>

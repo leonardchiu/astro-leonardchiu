@@ -1,7 +1,8 @@
 ---
-title: "Is WordPress the Best?"
+title: "Is WordPress the Best for websites?"
 pubDate: 2021-02-22
 author: "Leonard Chiu"
+tags: ["wordpress", "tech"]
 image:
   url: "../blogs/Wordpress.png"
   alt: ""

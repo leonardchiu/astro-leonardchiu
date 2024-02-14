@@ -1,19 +1,20 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Post from './Post.astro';
+const blogs = Astro.props.posts;
 
-type Props = {
-  posts: CollectionEntry<'posts'>[];
-};
+// type Props = {
+//   posts: CollectionEntry<'posts'>[];
+// };
 
-const { posts } = Astro.props;
+// const { posts } = Astro.props;
 
 // Sort posts by pubDate in descending order
-const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+const sortedPosts = blogs.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 ---
 
 <div class="grid grid-cols-2 gap-x-16 gap-y-14 max-md:grid-cols-1 mb-32ç">
-    {posts.map((post) => (
+    {blogs.map((post) => (
         <Post post={post} />
     ))}
 </div>

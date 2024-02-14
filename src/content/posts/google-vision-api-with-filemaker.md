@@ -2,6 +2,7 @@
 title: "Google Vision API with FileMaker"
 pubDate: 2021-10-10
 author: "Leonard Chiu"
+tags: ["filemaker", "tech"]
 image:
   url: "../blogs/Cloud_Vision_Filemaker.jpg"
   alt: ""
@@ -10,7 +11,7 @@ slug: "google-vision-api-with-filemaker"
 
 ## Google Vision API with FileMaker
 
-## Goodle Cloud Vision API
+## Google Cloud Vision API
 
 ### Current situation
 

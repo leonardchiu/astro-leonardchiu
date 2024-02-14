@@ -1,7 +1,8 @@
 ---
-title: "What is low code platforms"
+title: "What are low code platforms and benefits?"
 pubDate: 2021-11-20
 author: "Leonard Chiu"
+tags: ["low-code", "filemaker"]
 image:
   url: "../blogs/Low-Code-Featured-Image.jpg"
   alt: ""

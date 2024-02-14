@@ -1,0 +1,31 @@
+---
+// components/Pagination.astro
+const currentPage = Astro.props.currentPage;
+const totalPages = Astro.props.totalPages;
+const baseUrl = Astro.props.baseUrl;
+
+---
+
+<div class="pagination">
+  {currentPage > 1 && (
+    <a href={`${baseUrl}/${currentPage - 1}`} class="pagination-prev">
+      Previous
+    </a>
+  )}
+
+  {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+    <a
+      key={pageNumber}
+      href={`${baseUrl}/${pageNumber}`}
+      class={`pagination-number${currentPage === pageNumber ? ' active' : ''}`}
+    >
+      {pageNumber}
+    </a>
+  ))}
+
+  {currentPage < totalPages && (
+    <a href={`${baseUrl}/${currentPage + 1}`} class="pagination-next">
+      Next
+    </a>
+  )}
+</div>

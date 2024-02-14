@@ -1,0 +1,43 @@
+---
+// pages/blog/index.astro
+import { getCollection } from 'astro:content';
+import type { CollectionEntry, CollectionKey } from 'astro:content';
+import H1 from '../../components/H1.astro';
+import Main from '../../components/Main.astro';
+import Layout from '../../layouts/Layout.astro';
+// import PostList from '../../components/PostList.astro';
+import PostCard from '../../components/PostCard.astro';
+import Pagination from '../../components/Pagination.astro'; // Import the Pagination component
+import { ARTICLES_PER_PAGE } from '../../constants';
+
+
+const currentPage: number | null = +Astro.url.searchParams.get('page')! || 1;
+
+const paginatedPosts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
+  .sort((a:CollectionEntry<'posts'>, b:CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Calculate the total number of pages -> Research on this JS code
+const totalPages: number = Math.ceil(paginatedPosts.length / ARTICLES_PER_PAGE);
+
+// Slice the paginatedPosts array to only include the posts for the current page -> Research on this JS code
+const blogsPerPage: CollectionEntry<'posts'>[] = paginatedPosts.slice(
+  (currentPage - 1) * ARTICLES_PER_PAGE,
+  currentPage * ARTICLES_PER_PAGE
+);
+---
+
+<Layout title="Leonard Chiu's Blog">
+    <Main>
+        <H1 text="Latest Blog" />
+
+            <!-- <PostList posts={paginatedPosts} /> -->
+
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {blogsPerPage.map(post => (
+                  <PostCard post={post} />
+                ))}
+              </div>
+
+            <Pagination currentPage={currentPage} totalPages={totalPages} disablePrevious={currentPage === 1} disableNext={currentPage === totalPages} /> {/* Add the Pagination component */}
+    </Main>
+</Layout>

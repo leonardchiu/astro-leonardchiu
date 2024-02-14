@@ -2,6 +2,7 @@
 title: "Why Webflow and not any other traditional stacks?"
 pubDate: 2021-12-24
 author: "Leonard Chiu"
+tags: ["tech", "low-code"]
 image:
   url: "../blogs/Webflow.jpg"
   alt: ""

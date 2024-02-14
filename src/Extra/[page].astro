@@ -1,0 +1,35 @@
+---
+import { type Page } from 'astro';
+import { getCollection } from 'astro:content';
+import H1 from '../../components/H1.astro';
+import Main from '../../components/Main.astro';
+import Layout from '../../layouts/Layout.astro';
+import PostList from '../../components/PostList.astro';
+
+export async function getStaticPaths({paginate}) {
+    const posts = await getCollection('posts');
+    return paginate(posts, { pageSize: 4 });
+}
+
+const { page }: { page: Page } = Astro.props;
+// const { page } = Astro.props;
+---
+
+<Layout title="Leonard Chiu's Blog">
+    <Main>
+        <H1 text="Latest Blog" />
+
+            <PostList posts={ page } />
+
+    </Main>
+</Layout>
+
+<!-- <h1>Page {page.data.map(({id})=> {id})}</h1>
+<ul>
+  {page.map(({ slug }) => <li>{slug}</li>)}
+</ul> -->
+
+<!-- <h1>Page {page.currentPage}</h1>
+<ul>
+  {page.data.map(({ slug }) => <li>{slug}</li>)}
+</ul> -->
