@@ -10,6 +10,8 @@ import PostCard from '../../components/PostCard.astro';
 import Pagination from '../../components/Pagination.astro'; // Import the Pagination component
 import { ARTICLES_PER_PAGE } from '../../constants';
 
+export const prerender = true;
+
 
 const currentPage: number | null = +Astro.url.searchParams.get('page')! || 1;
 
